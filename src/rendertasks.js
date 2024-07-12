@@ -1,7 +1,7 @@
 import { projectArrays } from "./projects.js";
 import { Tasks } from "./task.js";
 
-function renderArrayToPage(array) {
+function renderArrayToPage(array) { //takes an array of tasks and renders them to the page 
     const mainContent = document.querySelector('.main-content');
     const arrayContainer = document.createElement('div');
     arrayContainer.classList.add('array-container');
