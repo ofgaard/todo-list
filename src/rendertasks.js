@@ -3,6 +3,7 @@ import { Tasks } from "./task.js";
 
 function renderArrayToPage(array, page) { //takes an array of tasks and renders them to the page 
     const mainContent = document.querySelector('.main-content');
+    mainContent.innerHTML = '';
     const arrayContainer = document.createElement('div');
     arrayContainer.classList.add('array-container');
     mainContent.appendChild(arrayContainer);

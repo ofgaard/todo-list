@@ -4,6 +4,7 @@ import { addTask } from './addtask.js';
 import { projectArrays } from './projects.js';
 import { renderArrayToPage } from './rendertasks.js';
 import { renderTodayPage } from './today.js';
+import { renderProjectMenu } from './renderprojectmenu.js';
 
 console.log ('Hello, World!');
 
@@ -20,3 +21,5 @@ const todayPage = document.querySelector('.today');
 todayPage.addEventListener('click', () => {
     renderTodayPage();
 });
+
+renderProjectMenu();
