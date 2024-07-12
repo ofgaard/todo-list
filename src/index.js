@@ -5,6 +5,7 @@ import { projectArrays } from './projects.js';
 import { renderArrayToPage } from './rendertasks.js';
 import { renderTodayPage } from './today.js';
 import { renderProjectMenu } from './renderprojectmenu.js';
+import { addProject } from './addproject.js';
 
 console.log ('Hello, World!');
 
@@ -23,3 +24,7 @@ todayPage.addEventListener('click', () => {
 });
 
 renderProjectMenu();
+
+addProject('hello, world');
+
+console.log(projectArrays);
