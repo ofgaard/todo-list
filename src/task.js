@@ -10,4 +10,11 @@ const upcomingTasks = [];
 
 const pastTasks = [];
 
-export { Tasks, todayTasks, thisWeekTasks, thisMonthTasks, upcomingTasks, pastTasks };
+export {
+  Tasks,
+  todayTasks,
+  thisWeekTasks,
+  thisMonthTasks,
+  upcomingTasks,
+  pastTasks,
+};

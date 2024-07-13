@@ -1,5 +1,5 @@
 const projectArrays = {
-    default: [],
+  default: [],
 };
 
 export { projectArrays };
