@@ -7,6 +7,7 @@ import { renderTodayPage } from './today.js';
 import { renderProjectMenu } from './renderprojectmenu.js';
 import { addProject } from './addproject.js';
 import { addTaskForm } from './addtaskform.js';
+import { addProjectForm } from './addprojectform.js';
 
 console.log ('Hello, World!');
 
@@ -28,7 +29,6 @@ todayPage.addEventListener('click', () => {
 
 renderProjectMenu();
 
-addProject('hello, world');
 
 console.log(projectArrays);
 
@@ -36,4 +36,10 @@ const addTaskButton = document.querySelector('.add-task');
 
 addTaskButton.addEventListener('click', () => {
     addTaskForm();
+});
+
+const addProjectButton = document.querySelector('.add-project');
+
+addProjectButton.addEventListener('click', () => {
+    addProjectForm();
 });
