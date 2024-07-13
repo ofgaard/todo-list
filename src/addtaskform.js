@@ -108,14 +108,33 @@ export function addTaskForm() {
 
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const taskname = taskName.value;
-    const taskdesc = taskDesc.value;
-    const taskdate = taskDate.value;
-    const project = projectDropdown.value;
-    const priority = priorityDropdown.value;
-    addTask(taskname, taskdesc, taskdate, project, priority);
-    renderProjectMenu();
-    modal.remove();
+    if (
+      taskName.value === "" ||
+      taskDesc.value === "" ||
+      taskDate.value === "" ||
+      projectDropdown.value === "Select Project" ||
+      priorityDropdown.value === "Select Priority"
+    ) {
+      alert("Please fill out all fields");
+      return;
+    } else if (projectDropdown.value === "Select Project" || projectDropdown.value === "New Project") {
+      alert("Please select a project");
+      return;
+    } else if (priorityDropdown.value === "Select Priority") {
+      alert("Please select a priority");
+      return;
+    }
+    else {
+      const taskname = taskName.value;
+      const taskdesc = taskDesc.value;
+      const taskdate = taskDate.value;
+      const project = projectDropdown.value;
+      const priority = priorityDropdown.value;
+      addTask(taskname, taskdesc, taskdate, project, priority);
+      renderProjectMenu();
+      modal.remove();
+    }
+
   });
 
   //call add task function with the input field values as arguements

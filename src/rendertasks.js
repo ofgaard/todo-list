@@ -99,29 +99,29 @@ function renderArrayToPage(array, page) {
       closeButton.textContent = "Close";
       expandedTask.appendChild(closeButton);
       closeButton.addEventListener("click", () => {
-        if (item.taskname !== expandedTaskNameEditable.value
-          || item.taskdesc !== expandedTaskDescEditable.value
-          || item.taskdate !== expandedTaskDateEditable.value
-          || item.project !== expandedTaskProjectEditable.value
-          || item.priority !== expandedTaskPriorityEditable.value) {
-            item.taskname = expandedTaskNameEditable.value;
-            item.taskdesc = expandedTaskDescEditable.value;
-            item.taskdate = expandedTaskDateEditable.value;
-            item.project = expandedTaskProjectEditable.value;
-            item.priority = expandedTaskPriorityEditable.value;
-            renderArrayToPage(array);
-            expandedTask.remove();
-          } else {
-            item.taskname = item.taskname;
-            item.taskdesc = item.taskdesc;
-            item.taskdate = item.taskdate;
-            item.project = item.project;
-            item.priority = item.priority;
-            renderArrayToPage(array);
-            expandButton.remove();
-          }
-
-            
+        if (
+          item.taskname !== expandedTaskNameEditable.value ||
+          item.taskdesc !== expandedTaskDescEditable.value ||
+          item.taskdate !== expandedTaskDateEditable.value ||
+          item.project !== expandedTaskProjectEditable.value ||
+          item.priority !== expandedTaskPriorityEditable.value
+        ) {
+          item.taskname = expandedTaskNameEditable.value;
+          item.taskdesc = expandedTaskDescEditable.value;
+          item.taskdate = expandedTaskDateEditable.value;
+          item.project = expandedTaskProjectEditable.value;
+          item.priority = expandedTaskPriorityEditable.value;
+          renderArrayToPage(array);
+          expandedTask.remove();
+        } else {
+          item.taskname = item.taskname;
+          item.taskdesc = item.taskdesc;
+          item.taskdate = item.taskdate;
+          item.project = item.project;
+          item.priority = item.priority;
+          renderArrayToPage(array);
+          expandButton.remove();
+        }
       });
     });
     deleteButton.addEventListener("click", () => {

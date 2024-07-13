@@ -13,7 +13,7 @@ export function renderProjectMenu() {
   Object.keys(projectArrays).forEach((project) => {
     const projectButton = document.createElement("button");
     projectButton.classList.add("project-button");
-    projectButton.textContent = '# ' + project;
+    projectButton.textContent = "# " + project;
     projectButton.addEventListener("click", () => {
       console.log(`Project ${project} clicked`);
 
