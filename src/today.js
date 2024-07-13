@@ -1,5 +1,5 @@
 import { renderArrayToPage } from "./rendertasks.js";
-import { Tasks } from "./task.js";
+import { todayTasks } from "./task.js";
 
 export function renderTodayPage() {
     const mainContent = document.querySelector('.main-content');
@@ -14,7 +14,7 @@ export function renderTodayPage() {
     todayArrayContainer.classList.add('array-container');
     todayContainer.appendChild(todayArrayContainer);
 
-    renderArrayToPage(Tasks, todayArrayContainer);
+    renderArrayToPage(todayTasks, todayArrayContainer);
 
 };
 

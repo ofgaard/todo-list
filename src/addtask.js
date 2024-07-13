@@ -1,6 +1,6 @@
 import { Tasks, todayTasks, thisMonthTasks, thisWeekTasks, upcomingTasks } from "./task.js";
 import { projectArrays } from "./projects.js";
-import {isToday, isThisWeek, isThisMonth, format, parse, } from 'date-fns';
+import {isToday, isThisWeek, isThisMonth, isPast, pastTasks, format, parse, } from 'date-fns';
 
 export function addTask(taskname, tasdesc, taskdate, project, priority) { //create a new task for the todo list 
     const parsedDate = parse(taskdate, 'yyyy-MM-dd', new Date());
@@ -26,10 +26,15 @@ export function addTask(taskname, tasdesc, taskdate, project, priority) { //crea
         todayTasks.push(task);
     } else if (isThisWeek(parsedDate)) {
         thisWeekTasks.push(task);
+        upcomingTasks.push(task);
     }
     else if (isThisMonth(parsedDate)) {
         thisMonthTasks.push(task);
-    } else {
+        upcomingTasks.push(task);
+    } else if (isPast(parsedDate)) {
+        pastTasks.push(task); 
+    }
+     else {
         upcomingTasks.push(task);
     }
     

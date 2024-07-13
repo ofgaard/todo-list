@@ -27,6 +27,7 @@ export function addProjectForm() { //create a form to add a new project
         const projectName = projectInput.value;
         addProject(projectName);
         renderProjectMenu();
+        console.log{}
         form.remove();
     }
     );

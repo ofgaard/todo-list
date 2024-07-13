@@ -7,12 +7,17 @@ export function addTaskForm() {
     
     //create modal 
 
+    const existingModal = document.querySelector('.modal');
+    if (existingModal) {
+        mainContent.removeChild(existingModal);
+    }
+
     const modal = document.createElement('div');
     modal.classList.add('modal');
     mainContent.appendChild(modal);
 
     //create form
-
+    modal.innerHTML = '';
     const form = document.createElement('form');
     form.classList.add('form');
     modal.appendChild(form);
