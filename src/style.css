@@ -16,3 +16,7 @@ html, body {
 .main-content {
     background-color: white;
 }
+
+.completed {
+    text-decoration: line-through;
+}
