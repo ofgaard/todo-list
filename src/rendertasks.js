@@ -35,9 +35,12 @@ function renderArrayToPage(array, page) {
     taskContainer.appendChild(expandButton);
     expandButton.addEventListener("click", () => {
       //open a modal that lets user see the task in more detail and edit each field
+      const expandedTaskModal = document.createElement("div");
+      expandedTaskModal.classList.add("expanded-task-modal");
+      mainContent.appendChild(expandedTaskModal);
       const expandedTask = document.createElement("div");
       expandedTask.classList.add("expanded-task");
-      mainContent.appendChild(expandedTask);
+      expandedTaskModal.appendChild(expandedTask);
       const expandedTaskName = document.createElement("h2");
       expandedTaskName.textContent = item.taskname;
       const expandedTaskNameEditable = document.createElement("input");
@@ -96,14 +99,29 @@ function renderArrayToPage(array, page) {
       closeButton.textContent = "Close";
       expandedTask.appendChild(closeButton);
       closeButton.addEventListener("click", () => {
-        item.taskname = expandedTaskNameEditable.value;
-        item.taskdesc = expandedTaskDescEditable.value;
-        item.taskdate = expandedTaskDateEditable.value;
-        item.project = expandedTaskProjectEditable.value;
+        if (item.taskname !== expandedTaskNameEditable.value
+          || item.taskdesc !== expandedTaskDescEditable.value
+          || item.taskdate !== expandedTaskDateEditable.value
+          || item.project !== expandedTaskProjectEditable.value
+          || item.priority !== expandedTaskPriorityEditable.value) {
+            item.taskname = expandedTaskNameEditable.value;
+            item.taskdesc = expandedTaskDescEditable.value;
+            item.taskdate = expandedTaskDateEditable.value;
+            item.project = expandedTaskProjectEditable.value;
+            item.priority = expandedTaskPriorityEditable.value;
+            renderArrayToPage(array);
+            expandedTask.remove();
+          } else {
+            item.taskname = item.taskname;
+            item.taskdesc = item.taskdesc;
+            item.taskdate = item.taskdate;
+            item.project = item.project;
+            item.priority = item.priority;
+            renderArrayToPage(array);
+            expandButton.remove();
+          }
 
-        item.priority = expandedTaskPriorityEditable.value;
-        renderArrayToPage(array);
-        expandedTask.remove();
+            
       });
     });
     deleteButton.addEventListener("click", () => {

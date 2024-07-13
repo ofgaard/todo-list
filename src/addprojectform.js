@@ -1,3 +1,4 @@
+import { add } from "date-fns";
 import { addProject } from "./addproject.js";
 import { projectArrays } from "./projects.js";
 import { renderProjectMenu } from "./renderprojectmenu.js";
@@ -30,5 +31,6 @@ export function addProjectForm() {
     renderProjectMenu();
     console.log(projectArrays);
     form.remove();
+    addProjectModal.remove();
   });
 }
