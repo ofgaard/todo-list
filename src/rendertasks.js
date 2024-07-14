@@ -66,7 +66,7 @@ function renderArrayToPage(array, page) {
     deleteButton.addEventListener("click", () => {  
       const index = array.indexOf(item);
       array.splice(index, 1);
-      renderArrayToPage(array);
+      renderArrayToPage(array, page);
     });
 
     const expandButton = document.createElement("button");
@@ -75,7 +75,7 @@ function renderArrayToPage(array, page) {
     taskContainerBottom.appendChild(expandButton);
 
     expandButton.addEventListener("click", () => {
-      expandTask(item);
+      expandTask(item, () => renderArrayToPage(array, page));
     });
     
   });

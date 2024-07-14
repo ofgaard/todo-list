@@ -1,13 +1,14 @@
-
 import { format } from 'date-fns';
 import { parse } from 'date-fns';
 import { editTask } from './edittask.js';
 import { renderArrayToPage } from './rendertasks.js';
-export function expandTask(task) {
+
+export function expandTask(task, updateCallback) {
     function formatDate(dateStr) {
         const date = new Date(dateStr);
         return format(date, "MMMM do");
-      }
+    }
+
     const mainContent = document.querySelector('.main-content');
     const taskModal = document.createElement('div');
     taskModal.classList.add('expanded-task-modal');
@@ -49,8 +50,7 @@ export function expandTask(task) {
 
     closeButton.addEventListener('click', () => {
         taskModal.remove();
-        //update the task with edits made in expanded view
-        
+        if (updateCallback) updateCallback();
     });
 
     const editButton = document.createElement('button');
@@ -59,8 +59,9 @@ export function expandTask(task) {
     expandedTaskContainer.appendChild(editButton);
 
     editButton.addEventListener('click', () => {
-        editTask(task);
+        editTask(task, () => {
+            taskModal.remove();
+            expandTask(task, updateCallback);
+        });
     });
-    
-
-}; 
+};

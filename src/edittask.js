@@ -1,13 +1,11 @@
-//a function to edit the expanded task
 import { format } from 'date-fns';
-import { expandTask } from './expandtask.js';
 
-
-export function editTask(task) {
+export function editTask(task, saveCallback) {
     function formatDate(dateStr) {
         const date = new Date(dateStr);
         return format(date, "yyyy-MM-dd");
     }
+
     const mainContent = document.querySelector('.main-content');
     const taskModal = document.createElement('div');
     taskModal.classList.add('expanded-task-modal');
@@ -53,7 +51,7 @@ export function editTask(task) {
         task.taskdate = taskDate.value;
         task.project = taskProject.value;
         task.priority = taskPriority.value;
-        expandTask(task);
+        if (saveCallback) saveCallback();
         taskModal.remove();
     });
     
@@ -64,9 +62,5 @@ export function editTask(task) {
     
     closeButton.addEventListener('click', () => {
         taskModal.remove();
-        //update the expanded task with the edits made
-
-
     });
-    
-    };  
+};
