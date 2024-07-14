@@ -1,6 +1,7 @@
 import { projectArrays } from "./projects.js";
 import { Tasks } from "./task.js";
 import { format } from 'date-fns';
+import { expandTask } from "./expandtask.js";
 
 function renderArrayToPage(array, page) {
   function formatDate(dateStr) {
@@ -68,100 +69,14 @@ function renderArrayToPage(array, page) {
       renderArrayToPage(array);
     });
 
-    // const deleteButton = document.createElement("button");
-    // deleteButton.textContent = "Delete";
-    // taskContainerBottom.appendChild(deleteButton);
+    const expandButton = document.createElement("button");
+    expandButton.textContent = "Expand";
+    expandButton.classList.add("expand-button");
+    taskContainerBottom.appendChild(expandButton);
 
-    // const expandButton = document.createElement("button");
-    // expandButton.textContent = "Expand";
-    // taskContainerBottom.appendChild(expandButton);
-    // expandButton.addEventListener("click", () => {
-    //   //open a modal that lets user see the task in more detail and edit each field
-    //   const expandedTaskModal = document.createElement("div");
-    //   expandedTaskModal.classList.add("expanded-task-modal");
-    //   mainContent.appendChild(expandedTaskModal);
-    //   const expandedTask = document.createElement("div");
-    //   expandedTask.classList.add("expanded-task");
-    //   expandedTaskModal.appendChild(expandedTask);
-    //   const expandedTaskName = document.createElement("h2");
-    //   expandedTaskName.textContent = item.taskname;
-    //   const expandedTaskNameEditable = document.createElement("input");
-    //   expandedTaskNameEditable.setAttribute("type", "text");
-    //   expandedTaskNameEditable.value = item.taskname;
-    //   expandedTask.appendChild(expandedTaskName);
-    //   expandedTask.appendChild(expandedTaskNameEditable);
-    //   const expandedTaskDesc = document.createElement("p");
-    //   expandedTaskDesc.textContent = item.taskdesc;
-    //   const expandedTaskDescEditable = document.createElement("input");
-    //   expandedTaskDescEditable.setAttribute("type", "text");
-    //   expandedTaskDescEditable.value = item.taskdesc;
-    //   expandedTask.appendChild(expandedTaskDesc);
-    //   expandedTask.appendChild(expandedTaskDescEditable);
-    //   const expandedTaskDate = document.createElement("p");
-    //   expandedTaskDate.textContent = formatDate(item.taskdate); // Use formatDate here
-    //   const expandedTaskDateEditable = document.createElement("input");
-    //   expandedTaskDateEditable.setAttribute("type", "date");
-    //   expandedTaskDateEditable.value = item.taskdate;
-    //   expandedTask.appendChild(expandedTaskDate);
-    //   expandedTask.appendChild(expandedTaskDateEditable);
-    //   const expandedTaskProject = document.createElement("p");
-    //   expandedTaskProject.textContent = item.project;
-    //   const expandedTaskProjectEditable = document.createElement("select");
-    //   expandedTaskProjectEditable.classList.add("project-dropdown");
-    //   const defaultOption = document.createElement("option");
-    //   defaultOption.textContent = "Select Project";
-    //   expandedTaskProjectEditable.appendChild(defaultOption);
-    //   for (const project in projectArrays) {
-    //     const option = document.createElement("option");
-    //     option.textContent = project;
-    //     expandedTaskProjectEditable.appendChild(option);
-    //   }
-    //   const newProjectOption = document.createElement("option");
-    //   newProjectOption.textContent = "New Project";
-    //   expandedTaskProjectEditable.appendChild(newProjectOption);
-    //   expandedTaskProjectEditable.addEventListener("change", (e) => {
-    //     if (e.target.value === "New Project") {
-    //       const newProject = prompt("Enter new project name");
-    //       projectArrays[newProject] = [];
-    //       const option = document.createElement("option");
-    //       option.textContent = newProject;
-    //       expandedTaskProjectEditable.appendChild(option);
-    //     }
-    //   });
-    //   expandedTask.appendChild(expandedTaskProject);
-    //   expandedTask.appendChild(expandedTaskProjectEditable);
-    //   const expandedTaskPriority = document.createElement("p");
-    //   expandedTaskPriority.textContent = item.priority;
-    //   const expandedTaskPriorityEditable = document.createElement("input");
-    //   expandedTaskPriorityEditable.setAttribute("type", "text");
-    //   expandedTaskPriorityEditable.value = item.priority;
-    //   expandedTask.appendChild(expandedTaskPriority);
-    //   expandedTask.appendChild(expandedTaskPriorityEditable);
-    //   const closeButton = document.createElement("button");
-    //   closeButton.textContent = "Close";
-    //   expandedTask.appendChild(closeButton);
-    //   closeButton.addEventListener("click", () => {
-    //     expandedTaskModal.remove();
-    //   });
-    //   const saveButton = document.createElement("button");
-    //   saveButton.textContent = "Save";
-    //   expandedTask.appendChild(saveButton);
-    //   saveButton.addEventListener("click", () => {
-    //     item.taskname = expandedTaskNameEditable.value;
-    //     item.taskdesc = expandedTaskDescEditable.value;
-    //     item.taskdate = expandedTaskDateEditable.value;
-    //     item.project = expandedTaskProjectEditable.value;
-    //     item.priority = expandedTaskPriorityEditable.value;
-    //     renderArrayToPage(array);
-    //     expandedTaskModal.remove();
-    //   });
-        
-    // });
-    // deleteButton.addEventListener("click", () => {
-    //   const index = array.indexOf(item);
-    //   array.splice(index, 1);
-    //   renderArrayToPage(array);
-    // });
+    expandButton.addEventListener("click", () => {
+      expandTask(item);
+    });
     
   });
 }
