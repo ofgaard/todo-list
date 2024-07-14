@@ -42,6 +42,4 @@ export function addProjectForm() {
   closeButton.innerHTML = '<i class="fa-regular fa-rectangle-xmark"></i>';
   closeButton.classList.add("close-button");
   formButtons.appendChild(closeButton);
-
-
 }

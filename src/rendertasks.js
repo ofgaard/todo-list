@@ -1,6 +1,6 @@
 import { projectArrays } from "./projects.js";
 import { Tasks } from "./task.js";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 import { expandTask } from "./expandtask.js";
 
 function renderArrayToPage(array, page) {
@@ -21,7 +21,7 @@ function renderArrayToPage(array, page) {
     taskContainer.classList.add("task-container");
     arrayContainer.appendChild(taskContainer);
 
-    const taskContainerTop  = document.createElement("div");
+    const taskContainerTop = document.createElement("div");
     taskContainerTop.classList.add("task-container-top");
     taskContainer.appendChild(taskContainerTop);
 
@@ -48,7 +48,7 @@ function renderArrayToPage(array, page) {
     taskContainer.appendChild(taskDate);
 
     //bottom of taskbox:
-    
+
     const taskContainerBottom = document.createElement("div");
     taskContainerBottom.classList.add("task-container-bottom");
     taskContainer.appendChild(taskContainerBottom);
@@ -62,14 +62,13 @@ function renderArrayToPage(array, page) {
     taskContainerButtons.classList.add("task-container-buttons");
     taskContainerBottom.appendChild(taskContainerButtons);
 
-
     const deleteButton = document.createElement("button");
-    deleteButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>'; 
+    deleteButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
 
     deleteButton.classList.add("delete-button");
     taskContainerButtons.appendChild(deleteButton);
 
-    deleteButton.addEventListener("click", () => {  
+    deleteButton.addEventListener("click", () => {
       const index = array.indexOf(item);
       array.splice(index, 1);
       renderArrayToPage(array, page);
@@ -83,7 +82,6 @@ function renderArrayToPage(array, page) {
     expandButton.addEventListener("click", () => {
       expandTask(item, () => renderArrayToPage(array, page));
     });
-    
   });
 }
 

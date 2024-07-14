@@ -15,18 +15,11 @@ import { addProject } from "./addproject.js";
 import { addTaskForm } from "./addtaskform.js";
 import { addProjectForm } from "./addprojectform.js";
 import { renderUpcomingPage } from "./upcoming.js";
-
-console.log("Hello, World!");
+import { format, parse } from "date-fns";
 
 addTask("Task 1", "Description 1", "2025-01-01", "Project 1", "High");
 
 addTask("Task 2", "Description 2", "2026-01-02", "default", "Medium");
-
-console.log(Tasks);
-
-console.log(projectArrays);
-
-renderArrayToPage(Tasks);
 
 const todayPage = document.querySelector(".today-button");
 const upcomingPage = document.querySelector(".upcoming-button");
@@ -34,7 +27,6 @@ const upcomingPage = document.querySelector(".upcoming-button");
 todayPage.addEventListener("click", () => {
   renderTodayPage();
   console.log(todayTasks);
-  console.log(upcomingTasks);
 });
 
 upcomingPage.addEventListener("click", () => {
@@ -43,8 +35,6 @@ upcomingPage.addEventListener("click", () => {
 });
 
 renderProjectMenu();
-
-console.log(projectArrays);
 
 const addTaskButton = document.querySelector(".add-task");
 

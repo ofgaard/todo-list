@@ -103,7 +103,6 @@ export function addTaskForm() {
   formButtons.classList.add("form-buttons");
   form.appendChild(formButtons);
 
-
   const submitButton = document.createElement("button");
   submitButton.innerHTML = '<i class="fa-regular fa-square-check"></i>';
   submitButton.classList.add("submit-button");
@@ -122,14 +121,16 @@ export function addTaskForm() {
     ) {
       alert("Please fill out all fields");
       return;
-    } else if (projectDropdown.value === "Select Project" || projectDropdown.value === "New Project") {
+    } else if (
+      projectDropdown.value === "Select Project" ||
+      projectDropdown.value === "New Project"
+    ) {
       alert("Please select a project");
       return;
     } else if (priorityDropdown.value === "Select Priority") {
       alert("Please select a priority");
       return;
-    }
-    else {
+    } else {
       const taskname = taskName.value;
       const taskdesc = taskDesc.value;
       const taskdate = taskDate.value;
@@ -139,14 +140,12 @@ export function addTaskForm() {
       renderProjectMenu();
       modal.remove();
     }
-
   });
 
-  const closeButton = document.createElement("button"); 
+  const closeButton = document.createElement("button");
   closeButton.innerHTML = '<i class="fa-regular fa-rectangle-xmark"></i>';
   closeButton.classList.add("close-button");
   formButtons.appendChild(closeButton);
-
 
   //call add task function with the input field values as arguements
 }
