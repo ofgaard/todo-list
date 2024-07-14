@@ -58,10 +58,16 @@ function renderArrayToPage(array, page) {
     taskProject.classList.add("task-project");
     taskContainerBottom.appendChild(taskProject);
 
+    const taskContainerButtons = document.createElement("div");
+    taskContainerButtons.classList.add("task-container-buttons");
+    taskContainerBottom.appendChild(taskContainerButtons);
+
+
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
+    deleteButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>'; 
+
     deleteButton.classList.add("delete-button");
-    taskContainerBottom.appendChild(deleteButton);
+    taskContainerButtons.appendChild(deleteButton);
 
     deleteButton.addEventListener("click", () => {  
       const index = array.indexOf(item);
@@ -70,9 +76,9 @@ function renderArrayToPage(array, page) {
     });
 
     const expandButton = document.createElement("button");
-    expandButton.textContent = "Expand";
+    expandButton.innerHTML = '<i class="fa-solid fa-expand"></i>';
     expandButton.classList.add("expand-button");
-    taskContainerBottom.appendChild(expandButton);
+    taskContainerButtons.appendChild(expandButton);
 
     expandButton.addEventListener("click", () => {
       expandTask(item, () => renderArrayToPage(array, page));

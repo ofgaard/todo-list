@@ -19,10 +19,14 @@ export function addProjectForm() {
   projectInput.classList.add("project-name");
   form.appendChild(projectInput);
 
+  const formButtons = document.createElement("div");
+  formButtons.classList.add("form-buttons");
+  form.appendChild(formButtons);
+
   const submitButton = document.createElement("button");
-  submitButton.textContent = "Submit";
+  submitButton.innerHTML = '<i class="fa-regular fa-square-check"></i>';
   submitButton.classList.add("submit-button");
-  form.appendChild(submitButton);
+  formButtons.appendChild(submitButton);
 
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -33,4 +37,11 @@ export function addProjectForm() {
     form.remove();
     addProjectModal.remove();
   });
+
+  const closeButton = document.createElement("button");
+  closeButton.innerHTML = '<i class="fa-regular fa-rectangle-xmark"></i>';
+  closeButton.classList.add("close-button");
+  formButtons.appendChild(closeButton);
+
+
 }

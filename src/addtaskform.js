@@ -99,10 +99,15 @@ export function addTaskForm() {
 
   //create submit button
 
+  const formButtons = document.createElement("div");
+  formButtons.classList.add("form-buttons");
+  form.appendChild(formButtons);
+
+
   const submitButton = document.createElement("button");
-  submitButton.textContent = "Submit";
+  submitButton.innerHTML = '<i class="fa-regular fa-square-check"></i>';
   submitButton.classList.add("submit-button");
-  form.appendChild(submitButton);
+  formButtons.appendChild(submitButton);
 
   //add event listener to submit button
 
@@ -136,6 +141,12 @@ export function addTaskForm() {
     }
 
   });
+
+  const closeButton = document.createElement("button"); 
+  closeButton.innerHTML = '<i class="fa-regular fa-rectangle-xmark"></i>';
+  closeButton.classList.add("close-button");
+  formButtons.appendChild(closeButton);
+
 
   //call add task function with the input field values as arguements
 }

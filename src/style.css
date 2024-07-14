@@ -66,15 +66,11 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.submit-button {
-  background-color: rgb(255, 166, 0);
-  border: 1px solid rgb(255, 166, 0);
-  color: white;
-  padding: 0.5rem;
-  cursor: pointer;
-  width: 30%;
+.submit-button, .close-button {
+  background: none;
+  border: none;
+  border: none;
   margin-left: auto;
-  border-radius: 8px;
 }
 
 .tasks-menu {
@@ -187,7 +183,9 @@ body {
   gap: 1rem;
   margin-top: 1rem;
   justify-content: space-between;
+  font-size: smaller;
   align-items: center;
+  
 
 
 }
@@ -201,12 +199,12 @@ body {
 
 }
 
-.task-project {
+/* .task-project, .expand-button, .delete-button {
   color: rgb(46, 46, 46);
   font-size: smaller;
   padding-left: 2.2rem;
   margin-top: -1.3rem;
-}
+} */
 
 
 
@@ -299,4 +297,31 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: auto;
   gap: 1rem;
+  min-width: 40%;
+}
+
+.delete-button, .expand-button, .edit-button, .close-button, .save-button  {
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  background: none;
+  cursor: pointer;
+
+}
+
+
+input {
+  border: none;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.form-buttons > * {
+  margin: 0;
+  padding: 0;
 }

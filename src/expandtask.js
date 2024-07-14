@@ -43,10 +43,14 @@ export function expandTask(task, updateCallback) {
     taskPriority.classList.add('expanded-task-priority');
     expandedTaskContainer.appendChild(taskPriority);
 
+    const formButtons = document.createElement('div');
+    formButtons.classList.add('form-buttons');
+    expandedTaskContainer.appendChild(formButtons);
+
     const closeButton = document.createElement('button');
-    closeButton.textContent = 'Close';
-    closeButton.classList.add('expanded-task-close');
-    expandedTaskContainer.appendChild(closeButton);
+    closeButton.innerHTML = '<i class="fa-regular fa-rectangle-xmark"></i>';
+    closeButton.classList.add('close-button');
+    formButtons.appendChild(closeButton);
 
     closeButton.addEventListener('click', () => {
         taskModal.remove();
@@ -54,9 +58,9 @@ export function expandTask(task, updateCallback) {
     });
 
     const editButton = document.createElement('button');
-    editButton.textContent = 'Edit';
-    editButton.classList.add('expanded-task-edit');
-    expandedTaskContainer.appendChild(editButton);
+    editButton.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+    editButton.classList.add('edit-button');
+    formButtons.appendChild(editButton);
 
     editButton.addEventListener('click', () => {
         editTask(task, () => {

@@ -40,10 +40,14 @@ export function editTask(task, saveCallback) {
     taskPriority.classList.add('expanded-task-priority');
     expandedTaskContainer.appendChild(taskPriority);
     
+    const formButtons = document.createElement('div');
+    formButtons.classList.add('form-buttons');
+    expandedTaskContainer.appendChild(formButtons);
+
     const saveButton = document.createElement('button');
-    saveButton.textContent = 'Save';
-    saveButton.classList.add('expanded-task-save');
-    expandedTaskContainer.appendChild(saveButton);
+    saveButton.innerHTML = '<i class="fa-regular fa-square-check"></i>';
+    saveButton.classList.add('save-button');
+    formButtons.appendChild(saveButton);
     
     saveButton.addEventListener('click', () => {
         task.taskname = taskName.value;
@@ -56,9 +60,9 @@ export function editTask(task, saveCallback) {
     });
     
     const closeButton = document.createElement('button');
-    closeButton.textContent = 'Close';
-    closeButton.classList.add('expanded-task-close');
-    expandedTaskContainer.appendChild(closeButton);
+    closeButton.innerHTML = '<i class="fa-regular fa-rectangle-xmark"></i>';
+    closeButton.classList.add('close-button');
+    formButtons.appendChild(closeButton);
     
     closeButton.addEventListener('click', () => {
         taskModal.remove();
